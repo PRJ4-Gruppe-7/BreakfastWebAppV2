@@ -8,6 +8,7 @@ namespace BreakfastWebAppV2.Controllers
 {
     public class ReceptionController : Controller
     {
+        
         public IActionResult Index()
         {
             return View();

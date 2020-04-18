@@ -10,6 +10,9 @@ namespace BreakfastWebAppV2.Models
     {
         [Key]
         public int RoomNumber { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{yyyy-MM-dd}")]
         public DateTime Date { get; set; }
         public int Adult { get; set; }
         public int Children { get; set; }

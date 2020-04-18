@@ -11,10 +11,14 @@ namespace BreakfastWebAppV2.Data
 {
     public class DbHelper
     {
-        public static void SeedUsers(UserManager<ApplicationUser> userManager, ILogger log)
+        public static async Task SeedUsersAsync(UserManager<ApplicationUser> userManager, ILogger log)
         {
+
+
+
+
             const string ReceptionistEmail = "Receptionist@localhost";
-            const string ReceptionistPassword = "password";
+            const string ReceptionistPassword = "Password_123";
 
             if (userManager.FindByNameAsync(ReceptionistEmail).Result == null)
             {
@@ -23,8 +27,9 @@ namespace BreakfastWebAppV2.Data
                 {
                     UserName = ReceptionistEmail,
                     Email = ReceptionistEmail,
-                    Name = "Bente Bent",
-                    Role = "Receptionist"
+                    FullName = "Bente Bent",
+                    Role = "Receptionist",
+                    EmailConfirmed = true
                 };
                 IdentityResult result = userManager.CreateAsync
                     (user, ReceptionistPassword).Result;
@@ -38,7 +43,7 @@ namespace BreakfastWebAppV2.Data
 
 
             const string WaiterEmail = "Waiter@localhost";
-            const string WaiterPassword = "password";
+            const string WaiterPassword = "Password_123";
 
             if (userManager.FindByNameAsync(WaiterEmail).Result == null)
             {
@@ -48,8 +53,9 @@ namespace BreakfastWebAppV2.Data
 
                     UserName = WaiterEmail,
                     Email = WaiterEmail,
-                    Name = "Morten Lenschow",
-                    Role = "Waiter"
+                    FullName = "Morten Lenschow",
+                    Role = "Waiter",
+                    EmailConfirmed = true
                 };
                 IdentityResult result = userManager.CreateAsync
                     (user, WaiterPassword).Result;
@@ -62,8 +68,11 @@ namespace BreakfastWebAppV2.Data
 
 
 
+
+
             const string CookEmail = "Cook@localhost";
-            const string CookPassword = "password";
+            const string CookPassword = "Password_123";
+
 
             if (userManager.FindByNameAsync(CookEmail).Result == null)
             {
@@ -73,8 +82,9 @@ namespace BreakfastWebAppV2.Data
 
                     UserName = CookEmail,
                     Email = CookEmail,
-                    Name = "Ralle",
-                    Role = "Cook"
+                    FullName = "Ralle",
+                    Role = "Cook",
+                    EmailConfirmed = true
                 };
                 IdentityResult result = userManager.CreateAsync
                     (user, CookPassword).Result;
@@ -84,6 +94,17 @@ namespace BreakfastWebAppV2.Data
                     userManager.AddClaimAsync(user, CookClaim);
                 }
             }
+
+
+
+
+            // For deletion of the users
+            //userManager.DeleteAsync(userManager.FindByNameAsync(ReceptionistEmail).Result);
+            //userManager.DeleteAsync(userManager.FindByNameAsync(CookEmail).Result);
+            //userManager.DeleteAsync(userManager.FindByNameAsync(WaiterEmail).Result);
+
+
+
 
 
         }

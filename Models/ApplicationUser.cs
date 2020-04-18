@@ -9,9 +9,8 @@ namespace BreakfastWebAppV2.Models
 {
     public class ApplicationUser : IdentityUser
     {
-        [Required]
         [PersonalData]
-        public string Name { get; set; }
+        public string FullName { get; set; }
         [PersonalData]
         public string Role { get; set; }
     }

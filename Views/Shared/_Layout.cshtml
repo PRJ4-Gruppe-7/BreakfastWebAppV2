@@ -40,7 +40,7 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                             </li>
-                            @if (User.HasClaim("Kitcheneer", "Yes"))
+                            @if (User.HasClaim("Cook", "Yes"))
                             {
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" asp-area="" asp-controller="Kitchen" asp-action="Index">Kitchen</a>
@@ -55,7 +55,7 @@
                             @if (User.HasClaim("Waiter", "Yes"))
                             {
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Resturant" asp-action="Index">Resturant</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Restaurant" asp-action="Index">Restaurant</a>
                                 </li>
                             }
                         </ul>

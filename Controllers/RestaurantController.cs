@@ -8,14 +8,11 @@ using BreakfastWebAppV2.Data;
 
 namespace BreakfastWebAppV2.Controllers
 {
-    [Authorize]
     public class RestaurantController : Controller
     {
-        private readonly ApplicationDbContext _context;
-
-        public RestaurantController(ApplicationDbContext context)
+        public IActionResult Index()
         {
-            _context = context;
+            return View();
         }
     }
 }

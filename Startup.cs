@@ -59,7 +59,7 @@ namespace BreakfastWebAppV2
 
             app.UseAuthentication();
 
-            DbHelper.SeedUsers(userManager, log);
+            DbHelper.SeedUsersAsync(userManager, log);
 
             app.UseAuthorization();
 

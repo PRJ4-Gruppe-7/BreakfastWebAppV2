@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using BreakfastWebAppV2.Models;
+using BreakfastWebAppV2.Utilities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using BreakfastWebAppV2.Models;
-using Microsoft.AspNetCore.Authorization;
-using BreakfastWebAppV2.Utilities;
+using System.Diagnostics;
 
 namespace BreakfastWebAppV2.Controllers
 {
@@ -27,7 +23,7 @@ namespace BreakfastWebAppV2.Controllers
             return View();
         }
 
-        [Authorize("Kitcheneer")]
+        [Authorize("Cook")]
         public IActionResult Kitchen()
         {
             if (Request.IsAjaxRequest())
