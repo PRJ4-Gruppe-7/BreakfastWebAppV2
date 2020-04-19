@@ -2,6 +2,15 @@
 @{
     ViewData["Title"] = "Restaurant Page";
 }
+    <link href="@Url.Content("~/css/restaurant.css")" rel="stylesheet" type="text/css" />
 
-    <h1>Restaurant Page</h1>
-
+        <div class="container">
+            <a class="item-a">Register guests for breakfast</a>
+            <a class="item-g">Room number:</a>
+            <input class="item-h" type="number" id="roomNumber" name="roomNumber" min="1" max="500" />
+            <a class="item-b">Parents:</a>
+            <input class="item-c" type="number" id="parentsCount" name="parentsCount" min="1" max="4" />
+            <a class="item-d">Children:</a>
+            <input class="item-e" type="number" id="childrenCount" name="childrenCount" min="0" max="4" />
+            <button class="item-f" type="button">Send</button>
+        </div>
