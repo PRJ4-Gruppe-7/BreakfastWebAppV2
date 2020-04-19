@@ -14,10 +14,10 @@ namespace BreakfastWebAppV2.Models
 
 
 
-
-        public ReceptionViewModel (List<Room> rooms)
+        public ReceptionViewModel (List<Room> rooms, DateTime date)
         {
             ListOfRooms = rooms;
+            Date = date;
         }
     }
 }

@@ -58,3 +58,18 @@
     border: dashed;
     padding: 30px;
 }
+
+
+.single_room :hover {
+    background-color: aqua;
+}
+
+.single_room {
+    background-color: snow;
+    margin-bottom: 10px;
+}
+
+
+.single_room .number{
+    font-size: 28px;
+}
