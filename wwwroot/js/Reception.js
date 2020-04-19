@@ -1,8 +1,6 @@
 ﻿
+console.log("Inside Reception");
 
+var listofrooms = @Model.ListOfRooms;
 
-console.log("Inside reception");
-
-//$(function () {
-//    $("#datepicker").datepicker();
-//});
+console.log(listofrooms);

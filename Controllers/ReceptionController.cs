@@ -14,11 +14,13 @@ namespace BreakfastWebAppV2.Controllers
         private ApplicationDbContext context;
         public IActionResult Index()
         {
-
-            return View(new ReceptionViewModel(context.Rooms.Include(r => r.Occupants).ToList()));
+            var rooms = context.Rooms.Include(r => r.Occupants).ToList();
+            return View(new ReceptionViewModel(rooms));
         }
 
-        public ReceptionController (ApplicationDbContext dbcont)
+
+
+            public ReceptionController (ApplicationDbContext dbcont)
         {
             context = dbcont;
         }

@@ -1,0 +1,88 @@
+﻿@model ReceptionViewModel
+@{
+    ViewData["Title"] = "Reception Page";
+}
+
+
+
+<head>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+
+    <!-- Include Bootstrap Datepicker -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+
+    <script src="~/js/Reception.js"></script>
+    <link href="@Url.Content("~/css/reception.css")" rel="stylesheet" type="text/css" />
+</head>
+
+
+<body>
+    <h1>Reception Page</h1>
+
+    <div class="content">
+
+
+        <form class="input">
+            <div class="date_bar">
+                <label for="roomnumber">Indtast dato</label>
+                <input type="date" name="date" />
+            </div>
+
+            <div class="room_bar">
+                <label for="roomnumber">Indtast værelsesnummer</label>
+                <input type="number" name="RoomNumber" />
+            </div>
+
+            <div class="adults_bar">
+                <label for="adultsbreakfast">Indtast antal voksne der har bestilt morgenmad</label>
+                <input type="number" name="AdultsWantBreakfast" />
+            </div>
+
+            <div class="kids_bar">
+                <label for="kidsbreakfast">Indtast antal børn der har bestilt morgenmad</label>
+                <input type="number" name="ChildrenWantBreakfast" />
+            </div>
+
+            <div class="submit">
+                <input type="submit" value="Send" id="submit" /> <input type="reset" />
+            </div>
+
+
+        </form>
+
+        <div class="output">
+
+
+
+        </div>
+
+
+
+
+        @*<div class="output">
+                    @foreach (var room in Model.ListOfRooms)
+                    {
+                        <a>Room number is: @room.RoomNumber</a>
+                        @foreach (var occupants in room.Occupants)
+                        {
+                            @if (occupants.Date == Model.TodoStartDate)
+                            {
+                                <a>@occupants.CheckedInChildren / @occupants.Children</a>
+                            }
+                        }
+
+                    }
+
+            </div>*@
+
+    </div>
+
+
+</body>
+
+
+
+
+

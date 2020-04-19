@@ -170,17 +170,19 @@ namespace BreakfastWebAppV2.Migrations
                 name: "Occupants",
                 columns: table => new
                 {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     RoomNumber = table.Column<int>(nullable: false),
+                    RoomNumber1 = table.Column<int>(nullable: true),
                     Date = table.Column<DateTime>(nullable: false),
                     Adult = table.Column<int>(nullable: false),
                     Children = table.Column<int>(nullable: false),
                     CheckedInAdult = table.Column<int>(nullable: false),
-                    CheckedInChildren = table.Column<int>(nullable: false),
-                    RoomNumber1 = table.Column<int>(nullable: true)
+                    CheckedInChildren = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Occupants", x => new { x.Date, x.RoomNumber });
+                    table.PrimaryKey("PK_Occupants", x => x.ID);
                     table.ForeignKey(
                         name: "FK_Occupants_Rooms_RoomNumber1",
                         column: x => x.RoomNumber1,
@@ -191,15 +193,15 @@ namespace BreakfastWebAppV2.Migrations
 
             migrationBuilder.InsertData(
                 table: "Occupants",
-                columns: new[] { "Date", "RoomNumber", "Adult", "CheckedInAdult", "CheckedInChildren", "Children", "RoomNumber1" },
+                columns: new[] { "ID", "Adult", "CheckedInAdult", "CheckedInChildren", "Children", "Date", "RoomNumber", "RoomNumber1" },
                 values: new object[,]
                 {
-                    { new DateTime(2020, 4, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 4, 2, 2, 2, null },
-                    { new DateTime(2020, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 4, 1, 1, 2, null },
-                    { new DateTime(2020, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 2, 0, 2, 2, null },
-                    { new DateTime(2020, 4, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 1, 0, 0, 0, null },
-                    { new DateTime(2020, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 1, 0, 0, 0, null },
-                    { new DateTime(2020, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 1, 0, 0, 0, null }
+                    { 1, 4, 2, 2, 2, new DateTime(2020, 4, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, null },
+                    { 2, 4, 1, 1, 2, new DateTime(2020, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, null },
+                    { 3, 2, 0, 2, 2, new DateTime(2020, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, null },
+                    { 4, 1, 0, 0, 0, new DateTime(2020, 4, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, null },
+                    { 5, 1, 0, 0, 0, new DateTime(2020, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, null },
+                    { 6, 1, 0, 0, 0, new DateTime(2020, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, null }
                 });
 
             migrationBuilder.InsertData(

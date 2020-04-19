@@ -1,35 +1,29 @@
-﻿@model ReceptionViewModel
-@{
-    ViewData["Title"] = "Reception Page";
-}
-
-@{
-    var choice = @Context.Request.Query["Choice"];
-    var imagePath="";
+﻿@{
+    var choice = @Context.Request.Query["date"];
+    var date="";
     if (!String.IsNullOrEmpty(choice)){
-       imagePath="images/" + choice;
+       date=choice;
+    }
 }
-}
-
 
 <!DOCTYPE html>
 <html>
-
-
 <body>
     <h1>Display Images</h1>
     <form method="post" action="">
         I want to see:
         <label for="roomnumber">Indtast dato</label>
-        <input value="sds" type="date" name="date"/>
-        <input type="submit" value="Submit" />
+        <input type="date" name="date" />
+        <input type="submit" value="Submit">
+        @if (date != "")
+        {
         <div class="output">
             @foreach (var room in Model.ListOfRooms)
             {
                 <a>Room number is: @room.RoomNumber</a>
                 @foreach (var occupants in room.Occupants)
                 {
-                    @if (occupants.Date == Model.Date)
+                    @if (occupants.Date == date)
                     {
                         <a>@occupants.CheckedInChildren / @occupants.Children</a>
                     }
@@ -38,12 +32,7 @@
             }
 
         </div>
+        }
     </form>
 </body>
 </html>
-
-
-
-
-
-

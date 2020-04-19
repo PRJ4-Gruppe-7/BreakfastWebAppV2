@@ -8,7 +8,9 @@ namespace BreakfastWebAppV2.Models
 {
     public class Occupants
     {
-        public int RoomNumber { get; set; }
+        public int ID { get; set; }
+        public Room Room { get; set; }
+        public int RoomID { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{yyyy-MM-dd}")]

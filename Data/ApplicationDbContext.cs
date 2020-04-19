@@ -22,8 +22,6 @@ namespace BreakfastWebAppV2.Data
         protected override void OnModelCreating(ModelBuilder mb)
         {
             base.OnModelCreating(mb);
-            mb.Entity<Occupants>()
-                .HasKey(o => new { o.Date, o.RoomNumber });
 
             mb.Entity<ApplicationUser>()
                 .Property(a => a.FullName)
@@ -52,7 +50,8 @@ namespace BreakfastWebAppV2.Data
                 .HasData(
                 new Occupants
                 {
-                    RoomNumber = 1,
+                    ID = 1,
+                    RoomID = 1,
                     Adult = 4,
                     CheckedInAdult = 2,
                     Children = 2,
@@ -62,7 +61,8 @@ namespace BreakfastWebAppV2.Data
                 },
                 new Occupants
                 {
-                    RoomNumber = 1,
+                    ID = 2,
+                    RoomID = 1,
                     Adult = 4,
                     CheckedInAdult = 1,
                     Children = 2,
@@ -71,7 +71,8 @@ namespace BreakfastWebAppV2.Data
                 },
                 new Occupants
                 {
-                    RoomNumber = 1,
+                    ID = 3,
+                    RoomID = 1,
                     Adult = 2,
                     CheckedInAdult = 0,
                     Children = 2,
@@ -80,7 +81,8 @@ namespace BreakfastWebAppV2.Data
                 },
                 new Occupants
                 {
-                    RoomNumber = 2,
+                    ID = 4,
+                    RoomID = 2,
                     Adult = 1,
                     CheckedInAdult = 0,
                     Children = 0,
@@ -89,7 +91,8 @@ namespace BreakfastWebAppV2.Data
                 },
                 new Occupants
                 {
-                    RoomNumber = 2,
+                    ID = 5,
+                    RoomID = 2,
                     Adult = 1,
                     CheckedInAdult = 0,
                     Children = 0,
@@ -98,7 +101,8 @@ namespace BreakfastWebAppV2.Data
                 },
                 new Occupants
                 {
-                    RoomNumber = 2,
+                    ID = 6,
+                    RoomID = 2,
                     Adult = 1,
                     CheckedInAdult = 0,
                     Children = 0,

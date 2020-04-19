@@ -1,19 +1,17 @@
 ﻿.content {
     display: grid;
-    grid-template: "date date" "input output";
+    grid-template:"input output";
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 50px;
 }
 
-.form-group {
-    grid-area: date;
-}
 
 .input {
     grid-area: input;
 
     display: grid;
     grid-template:
+        "Datepicker"
         "Room"
         "Adults"
         "Kids"
@@ -23,6 +21,19 @@
     border:dashed;
     padding: 30px;
     
+}
+
+.date_bar {
+    grid-area: Datepicker;
+}
+
+.input input {
+    float: right;
+    width: 60px;
+}
+
+.date_bar input {
+    width: 240px;
 }
 
 .room_bar {
@@ -39,11 +50,7 @@
 
 .submit {
     grid-area: submit;
-}
-
-.input input {
-    float: right;
-    width: 50px;
+    
 }
 
 .output {

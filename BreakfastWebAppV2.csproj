@@ -5,13 +5,6 @@
     <UserSecretsId>aspnet-BreakfastWebAppV2-A6D0289E-532A-464C-B768-6F8BE4D245A9</UserSecretsId>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Migrations\20200419141038_FifthMigration.cs" />
-    <Compile Remove="Migrations\20200419141038_FifthMigration.Designer.cs" />
-    <Compile Remove="Migrations\20200419141221_SixthMigration.cs" />
-    <Compile Remove="Migrations\20200419141221_SixthMigration.Designer.cs" />
-  </ItemGroup>
-
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.3" />
@@ -27,6 +20,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
   </ItemGroup>
 
 </Project>

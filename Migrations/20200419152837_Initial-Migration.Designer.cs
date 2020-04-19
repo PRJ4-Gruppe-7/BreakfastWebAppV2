@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BreakfastWebAppV2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200419142401_Initial-Migration")]
+    [Migration("20200419152837_Initial-Migration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -96,11 +96,10 @@ namespace BreakfastWebAppV2.Migrations
 
             modelBuilder.Entity("BreakfastWebAppV2.Models.Occupants", b =>
                 {
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("RoomNumber")
-                        .HasColumnType("int");
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("Adult")
                         .HasColumnType("int");
@@ -114,10 +113,16 @@ namespace BreakfastWebAppV2.Migrations
                     b.Property<int>("Children")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("RoomNumber")
+                        .HasColumnType("int");
+
                     b.Property<int?>("RoomNumber1")
                         .HasColumnType("int");
 
-                    b.HasKey("Date", "RoomNumber");
+                    b.HasKey("ID");
 
                     b.HasIndex("RoomNumber1");
 
@@ -126,57 +131,63 @@ namespace BreakfastWebAppV2.Migrations
                     b.HasData(
                         new
                         {
-                            Date = new DateTime(2020, 4, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RoomNumber = 1,
+                            ID = 1,
                             Adult = 4,
                             CheckedInAdult = 2,
                             CheckedInChildren = 2,
-                            Children = 2
+                            Children = 2,
+                            Date = new DateTime(2020, 4, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RoomNumber = 1
                         },
                         new
                         {
-                            Date = new DateTime(2020, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RoomNumber = 1,
+                            ID = 2,
                             Adult = 4,
                             CheckedInAdult = 1,
                             CheckedInChildren = 1,
-                            Children = 2
+                            Children = 2,
+                            Date = new DateTime(2020, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RoomNumber = 1
                         },
                         new
                         {
-                            Date = new DateTime(2020, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RoomNumber = 1,
+                            ID = 3,
                             Adult = 2,
                             CheckedInAdult = 0,
                             CheckedInChildren = 2,
-                            Children = 2
-                        },
-                        new
-                        {
-                            Date = new DateTime(2020, 4, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RoomNumber = 2,
-                            Adult = 1,
-                            CheckedInAdult = 0,
-                            CheckedInChildren = 0,
-                            Children = 0
-                        },
-                        new
-                        {
-                            Date = new DateTime(2020, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RoomNumber = 2,
-                            Adult = 1,
-                            CheckedInAdult = 0,
-                            CheckedInChildren = 0,
-                            Children = 0
-                        },
-                        new
-                        {
+                            Children = 2,
                             Date = new DateTime(2020, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RoomNumber = 2,
+                            RoomNumber = 1
+                        },
+                        new
+                        {
+                            ID = 4,
                             Adult = 1,
                             CheckedInAdult = 0,
                             CheckedInChildren = 0,
-                            Children = 0
+                            Children = 0,
+                            Date = new DateTime(2020, 4, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RoomNumber = 2
+                        },
+                        new
+                        {
+                            ID = 5,
+                            Adult = 1,
+                            CheckedInAdult = 0,
+                            CheckedInChildren = 0,
+                            Children = 0,
+                            Date = new DateTime(2020, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RoomNumber = 2
+                        },
+                        new
+                        {
+                            ID = 6,
+                            Adult = 1,
+                            CheckedInAdult = 0,
+                            CheckedInChildren = 0,
+                            Children = 0,
+                            Date = new DateTime(2020, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RoomNumber = 2
                         });
                 });
 
@@ -347,7 +358,7 @@ namespace BreakfastWebAppV2.Migrations
 
             modelBuilder.Entity("BreakfastWebAppV2.Models.Occupants", b =>
                 {
-                    b.HasOne("BreakfastWebAppV2.Models.Room", null)
+                    b.HasOne("BreakfastWebAppV2.Models.Room", "Room")
                         .WithMany("Occupants")
                         .HasForeignKey("RoomNumber1");
                 });

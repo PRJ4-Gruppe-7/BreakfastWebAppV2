@@ -9,8 +9,9 @@ namespace BreakfastWebAppV2.Models
 {
     public class Room
     {
+        [Required]
         [Key]
         public int RoomNumber { get; set; }
-        public List<Occupants> Occupants { get; set; }
+        public ICollection<Occupants> Occupants { get; set; }
     }
 }
