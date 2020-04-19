@@ -63,7 +63,7 @@ body {
   margin-bottom: 60px;
 }
 .footer {
-  position: absolute;
+    color: purple;
   bottom: 0;
   width: 100%;
   white-space: nowrap;

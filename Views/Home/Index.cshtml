@@ -1,8 +1,32 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
 
-<div class="text-center">
-    <h1 class="display-4">Welcome Hotel California coworker.</h1>
-    <h2>Please login and use the navigatio bar to your designated work site</h2>
-</div>
+    <div class="text-center">
+        @if (!SignInManager.IsSignedIn(User))
+        {
+            <h1 class="display-4">Welcome Hotel California coworker.</h1>
+            <h2>Please login and use the navigation bar to your designated work site</h2>
+        }
+        @if (User.HasClaim("Cook", "Yes"))
+        {
+            <h1 class="display-4">Welcome Hotel California cook.</h1>
+            <h2>Please use the kitchen hub for your work</h2>
+            <a class="h3" asp-area="" asp-controller="Kitchen" asp-action="Index">Kitchen hub</a>
+        }
+        @if (User.HasClaim("Receptionist", "Yes"))
+        {
+            <h1 class="display-4">Welcome Hotel California receptionist.</h1>
+            <h2>Please use the reception hub for your work</h2>
+            <a class="h3" asp-area="" asp-controller="Reception" asp-action="Index">Reception hub</a>
+        }
+        @if (User.HasClaim("Waiter", "Yes"))
+        {
+            <h1 class="display-4">Welcome Hotel California waiter.</h1>
+            <h2>Please use the resturant hub for your work</h2>
+            <a class="h3" asp-area="" asp-controller="Resturant" asp-action="Index">Resturant hub</a>
+
+        }
+    </div>
