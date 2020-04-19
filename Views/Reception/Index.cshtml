@@ -14,7 +14,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
 
     <script src="~/js/Reception.js"></script>
-    <link rel="stylesheet" src="~/css/reception.css" />
+    <link href="@Url.Content("~/css/reception.css")" rel="stylesheet" type="text/css" />
 </head>
 
 
@@ -24,17 +24,46 @@
     <div class="content">
         <div class="form-group">
             <label asp-for="TodoStartDate">Date</label>
-            <input asp-for="TodoStartDate" class="form-control" placeholder="Date for the meeting" id="datepicker">
+            <input asp-for="TodoStartDate" class="form-control" placeholder="Date" id="datepicker">
             <span asp-validation-for="TodoStartDate" class="text-danger"></span>
         </div>
 
         <div class="input">
+            <div class="room_bar">
+                <a>Indtast værelsesnummer</a>
+                <input />
+            </div>
 
-            dgsdfef
+            <div class="adults_bar">
+                <a>Indtast antal voksne der har bestilt morgenmad</a>
+                <input />
+            </div>
+
+            <div class="kids_bar">
+                <a>Indtast antal børn der har bestilt morgenmad</a>
+                <input />
+            </div>
+
+            <div class="submit">
+                <button>submit</button>
+            </div>
+
+
         </div>
 
         <div class="output">
-            fddgsdgdsg
+                @foreach (var room in Model.ListOfRooms)
+                {
+                    <a>Room number is: @room.RoomNumber</a>
+                    @foreach (var occupants in room.Occupants)
+                    {
+                        @if (occupants.Date == new DateTime(2020,4,20))
+                        {
+                            <a>ff</a>
+                        }
+                    }
+
+                }
 
         </div>
 

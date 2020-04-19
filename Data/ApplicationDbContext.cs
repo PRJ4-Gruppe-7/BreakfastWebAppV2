@@ -22,75 +22,89 @@ namespace BreakfastWebAppV2.Data
         protected override void OnModelCreating(ModelBuilder mb)
         {
             base.OnModelCreating(mb);
+            mb.Entity<Occupants>()
+                .HasKey(o => new { o.Date, o.RoomNumber });
 
-            //_ = mb.Entity<Room>()
-            //    .HasData(
-            //    new Room
-            //    {
-            //        RoomNumber = 1,
-            //        Occupants = new List<Occupants> { 
-            //            new Occupants 
-            //            {
-            //            RoomNumber = 1,
-            //            Date = new DateTime(2020, 4, 18),
-            //            Adult = 2,
-            //            CheckedInAdult = 2,
-            //            Children = 3,
-            //            CheckedInChildren = 2
-            //        },
-            //            new Occupants
-            //            {
-            //            RoomNumber = 1,
-            //            Date = new DateTime(2020, 4, 19),
-            //            Adult = 2,
-            //            CheckedInAdult = 1,
-            //            Children = 2,
-            //            CheckedInChildren = 2
-            //            },
-            //            new Occupants
-            //            {
-            //            RoomNumber = 1,
-            //            Date = new DateTime(2020, 4, 20),
-            //            Adult = 5,
-            //            CheckedInAdult = 2,
-            //            Children = 0,
-            //            CheckedInChildren = 0
-            //            }
-            //        }
-            //    },
-            //    new Room
-            //    {
-            //        RoomNumber = 17,
-            //        Occupants = new List<Occupants> {
+            mb.Entity<ApplicationUser>()
+                .Property(a => a.FullName)
+                .HasDefaultValue("John Doe");
 
-            //            new Occupants
-            //            {
-            //               RoomNumber = 17,
-            //               Date = new DateTime(2020, 4, 18),
-            //               Adult = 2,
-            //               Children = 0,
-            //               CheckedInAdult = 2,
-            //               CheckedInChildren = 0
-            //       },
-            //        new Occupants
-            //        {
-            //            RoomNumber = 17,
-            //            Date = new DateTime(2020, 4, 19),
-            //            Adult = 2,
-            //            Children = 0,
-            //            CheckedInAdult = 2,
-            //            CheckedInChildren = 0
-            //        },
-            //        new Occupants
-            //        {
-            //            RoomNumber = 17,
-            //            Date = new DateTime(2020, 4, 20),
-            //            Adult = 2,
-            //            Children = 0,
-            //            CheckedInAdult = 2,
-            //            CheckedInChildren = 0
-            //        }}
-            //    });
+            mb.Entity<Room>()
+                .HasData(
+                new Room
+                {
+                    RoomNumber = 1
+                },
+                new Room
+                {
+                    RoomNumber = 2
+                },
+                new Room
+                {
+                    RoomNumber = 3
+                },
+                new Room
+                {
+                    RoomNumber = 4,
+                });
+
+            mb.Entity<Occupants>()
+                .HasData(
+                new Occupants
+                {
+                    RoomNumber = 1,
+                    Adult = 4,
+                    CheckedInAdult = 2,
+                    Children = 2,
+                    CheckedInChildren = 2,
+                    Date = new DateTime(2020, 4, 19)
+
+                },
+                new Occupants
+                {
+                    RoomNumber = 1,
+                    Adult = 4,
+                    CheckedInAdult = 1,
+                    Children = 2,
+                    CheckedInChildren = 1,
+                    Date = new DateTime(2020, 4, 20)
+                },
+                new Occupants
+                {
+                    RoomNumber = 1,
+                    Adult = 2,
+                    CheckedInAdult = 0,
+                    Children = 2,
+                    CheckedInChildren = 2,
+                    Date = new DateTime(2020, 4, 21)
+                },
+                new Occupants
+                {
+                    RoomNumber = 2,
+                    Adult = 1,
+                    CheckedInAdult = 0,
+                    Children = 0,
+                    CheckedInChildren = 0,
+                    Date = new DateTime(2020, 4, 19)
+                },
+                new Occupants
+                {
+                    RoomNumber = 2,
+                    Adult = 1,
+                    CheckedInAdult = 0,
+                    Children = 0,
+                    CheckedInChildren = 0,
+                    Date = new DateTime(2020, 4, 20)
+                },
+                new Occupants
+                {
+                    RoomNumber = 2,
+                    Adult = 1,
+                    CheckedInAdult = 0,
+                    Children = 0,
+                    CheckedInChildren = 0,
+                    Date = new DateTime(2020, 4, 21)
+                });
         }
         #endregion
 

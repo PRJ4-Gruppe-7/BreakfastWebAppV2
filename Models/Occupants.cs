@@ -8,7 +8,6 @@ namespace BreakfastWebAppV2.Models
 {
     public class Occupants
     {
-        [Key]
         public int RoomNumber { get; set; }
 
         [DataType(DataType.Date)]

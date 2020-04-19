@@ -39,7 +39,9 @@ namespace BreakfastWebAppV2.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("FullName")
-                        .HasColumnType("nvarchar(max)");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(max)")
+                        .HasDefaultValue("John Doe");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -92,10 +94,11 @@ namespace BreakfastWebAppV2.Migrations
 
             modelBuilder.Entity("BreakfastWebAppV2.Models.Occupants", b =>
                 {
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("RoomNumber")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
                     b.Property<int>("Adult")
                         .HasColumnType("int");
@@ -109,17 +112,70 @@ namespace BreakfastWebAppV2.Migrations
                     b.Property<int>("Children")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
                     b.Property<int?>("RoomNumber1")
                         .HasColumnType("int");
 
-                    b.HasKey("RoomNumber");
+                    b.HasKey("Date", "RoomNumber");
 
                     b.HasIndex("RoomNumber1");
 
                     b.ToTable("Occupants");
+
+                    b.HasData(
+                        new
+                        {
+                            Date = new DateTime(2020, 4, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RoomNumber = 1,
+                            Adult = 4,
+                            CheckedInAdult = 2,
+                            CheckedInChildren = 2,
+                            Children = 2
+                        },
+                        new
+                        {
+                            Date = new DateTime(2020, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RoomNumber = 1,
+                            Adult = 4,
+                            CheckedInAdult = 1,
+                            CheckedInChildren = 1,
+                            Children = 2
+                        },
+                        new
+                        {
+                            Date = new DateTime(2020, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RoomNumber = 1,
+                            Adult = 2,
+                            CheckedInAdult = 0,
+                            CheckedInChildren = 2,
+                            Children = 2
+                        },
+                        new
+                        {
+                            Date = new DateTime(2020, 4, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RoomNumber = 2,
+                            Adult = 1,
+                            CheckedInAdult = 0,
+                            CheckedInChildren = 0,
+                            Children = 0
+                        },
+                        new
+                        {
+                            Date = new DateTime(2020, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RoomNumber = 2,
+                            Adult = 1,
+                            CheckedInAdult = 0,
+                            CheckedInChildren = 0,
+                            Children = 0
+                        },
+                        new
+                        {
+                            Date = new DateTime(2020, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RoomNumber = 2,
+                            Adult = 1,
+                            CheckedInAdult = 0,
+                            CheckedInChildren = 0,
+                            Children = 0
+                        });
                 });
 
             modelBuilder.Entity("BreakfastWebAppV2.Models.Room", b =>
@@ -132,6 +188,24 @@ namespace BreakfastWebAppV2.Migrations
                     b.HasKey("RoomNumber");
 
                     b.ToTable("Rooms");
+
+                    b.HasData(
+                        new
+                        {
+                            RoomNumber = 1
+                        },
+                        new
+                        {
+                            RoomNumber = 2
+                        },
+                        new
+                        {
+                            RoomNumber = 3
+                        },
+                        new
+                        {
+                            RoomNumber = 4
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

@@ -1,9 +1,8 @@
-﻿
-.content {
+﻿.content {
     display: grid;
-    grid-template: 
-        "date date"
-        "input output";
+    grid-template: "date date" "input output";
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 50px;
 }
 
 .form-group {
@@ -12,8 +11,43 @@
 
 .input {
     grid-area: input;
+
+    display: grid;
+    grid-template:
+        "Room"
+        "Adults"
+        "Kids"
+        "submit";
+    grid-gap: 10px;
+
+    border:dashed;
+    padding: 30px;
+    
+}
+
+.room_bar {
+    grid-area: Room;
+}
+
+.kids_bar {
+    grid-area: Kids;
+}
+
+.adults_bar {
+    grid-area: Adults;
+}
+
+.submit {
+    grid-area: submit;
+}
+
+.input input {
+    float: right;
+    width: 50px;
 }
 
 .output {
     grid-area: output;
+    border: dashed;
+    padding: 30px;
 }
