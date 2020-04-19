@@ -1,7 +1,36 @@
-﻿
+﻿@model RestaurantViewModel
+
 @{
     ViewData["Title"] = "Restaurant Page";
 }
+<link href="@Url.Content("~/css/restaurant.css")" rel="stylesheet" type="text/css" />
 
-    <h1>Restaurant Page</h1>
 
+<div>
+    <form asp-action="Index">
+        <div asp-validation-summary="ModelOnly" class="text-danger" />
+        <a class="item-a">Register guests for breakfast</a>
+
+        <div class="forms-group">
+            <label asp-for="roomNumber">Room number:</label>
+            <input asp-for="roomNumber" min="1" max="500" />
+            <span asp-validation-for="roomNumber" class="text-danger"></span>
+        </div>
+
+        <div class="forms-group">
+            <label asp-for="parentsCount">Parents:</label>
+            <input asp-for="parentsCount" min="1" max="4" />
+            <span asp-validation-for="parentsCount" class="text-danger"></span>
+        </div>
+
+        <div class="forms-group">
+            <label asp-for="childrenCount">Children:</label>
+            <input asp-for="childrenCount" min="0" max="4" />
+            <span asp-validation-for="childrenCount" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Send" id="mySubmit" class="button" />
+        </div>
+    </form>
+</div>

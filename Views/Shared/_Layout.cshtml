@@ -7,7 +7,7 @@
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/css/site.css" media="min-width: 480px" />
         <link rel="stylesheet" href="~/css/mobile.css" media="only screen and (max-width: 480px)" />
     </environment>
     <environment exclude="Development">
@@ -16,7 +16,7 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
               crossorigin="anonymous"
               integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" />
-        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" media="min-width: 480px" />
         <link rel="stylesheet" href="~/css/mobile.css" media="only screen and (max-width: 480px)" />
     </environment>
 </head>
@@ -24,11 +24,11 @@
     <div class="container">
         <header>
 
-            <img src="~/images/banner.png" class="d-none d-sm-block center-img" />
+            @*<img src="~/images/banner.png" class="d-none d-sm-block center-img" />*@
 
             <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
                 <div class="container">
-                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Hotel California</a>
+                    @*<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/banner.png"/></a>*@
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
