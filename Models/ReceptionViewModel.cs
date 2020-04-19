@@ -12,8 +12,6 @@ namespace BreakfastWebAppV2.Models
 
         public List<Room> ListOfRooms { get; set; }
 
-
-
         public ReceptionViewModel (List<Room> rooms, DateTime date)
         {
             ListOfRooms = rooms;

@@ -15,7 +15,6 @@ namespace BreakfastWebAppV2.Data
         {
         }
 
-
         public DbSet<Room> Rooms { get; set; }
 
         #region InsertingData
