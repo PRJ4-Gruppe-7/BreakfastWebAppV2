@@ -7,7 +7,7 @@
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/css/site.css" media="min-width: 480px" />
         <link rel="stylesheet" href="~/css/mobile.css" media="only screen and (max-width: 480px)" />
     </environment>
     <environment exclude="Development">
@@ -16,7 +16,7 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
               crossorigin="anonymous"
               integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" />
-        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" media="min-width: 480px" />
         <link rel="stylesheet" href="~/css/mobile.css" media="only screen and (max-width: 480px)" />
     </environment>
 </head>

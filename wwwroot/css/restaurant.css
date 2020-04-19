@@ -8,17 +8,14 @@
 
 .item-b {
     grid-area: parent;
-    background-color: blue;
 }
 
 .item-c {
     grid-area: countP;
-    background-color: green;
 }
 
 .item-d {
     grid-area: child;
-    background-color: pink;
 }
 
 .item-e {
@@ -45,5 +42,5 @@
         "room . number"
         "parent . countP"
         "child . countC"
-        ". send .";
+        "send . .";
 }
