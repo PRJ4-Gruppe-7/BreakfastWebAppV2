@@ -1,0 +1,19 @@
+﻿
+.content {
+    display: grid;
+    grid-template: 
+        "date date"
+        "input output";
+}
+
+.form-group {
+    grid-area: date;
+}
+
+.input {
+    grid-area: input;
+}
+
+.output {
+    grid-area: output;
+}

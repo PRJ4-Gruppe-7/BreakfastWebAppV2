@@ -3,13 +3,50 @@
     ViewData["Title"] = "Reception Page";
 }
 
+
+
+<head>
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+
+    <!-- Include Bootstrap Datepicker -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+
     <script src="~/js/Reception.js"></script>
+    <link rel="stylesheet" src="~/css/reception.css" />
+</head>
 
-<h1>Reception Page</h1>
+
+<body>
+    <h1>Reception Page</h1>
+
+    <div class="content">
+        <div class="form-group">
+            <label asp-for="TodoStartDate">Date</label>
+            <input asp-for="TodoStartDate" class="form-control" placeholder="Date for the meeting" id="datepicker">
+            <span asp-validation-for="TodoStartDate" class="text-danger"></span>
+        </div>
+
+        <div class="input">
+
+            dgsdfef
+        </div>
+
+        <div class="output">
+            fddgsdgdsg
+
+        </div>
+
+    </div>
 
 
-<div></div>
+</body>
+
+
+
+
+
+
 
 
