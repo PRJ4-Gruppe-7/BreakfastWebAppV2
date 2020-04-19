@@ -40,7 +40,7 @@ namespace BreakfastWebAppV2.Data
                 }
             }
 
-
+            
 
             const string WaiterEmail = "Waiter@localhost";
             const string WaiterPassword = "Password_123";
