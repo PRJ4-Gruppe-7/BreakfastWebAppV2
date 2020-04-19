@@ -3,5 +3,6 @@
 
 console.log("Inside reception");
 
-$('#sandbox-container div').datepicker({
-});
+//$(function () {
+//    $("#datepicker").datepicker();
+//});
