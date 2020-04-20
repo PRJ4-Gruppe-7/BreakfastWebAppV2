@@ -23,27 +23,32 @@
         <div class="output">
             @foreach (var room in Model.ListOfRooms)
             {
-            <div class="single_room">
-                <a class="number">Room @room.RoomNumber</a>
-                @foreach (var occupants in room.Occupants)
+                @if (room.Occupants.Count != 0 && room.Occupants.Any(o => o.Date == Model.Date))
                 {
-                    <ul>
-                        @if (occupants.Date == Model.Date)
+                    <div class="single_room">
+                        <a class="number">Room @room.RoomNumber</a>
+                        @foreach (var occupants in room.Occupants)
                         {
-                            <li>
-                                <a>Adults: @occupants.CheckedInAdult / @occupants.Adult</a>
-                            </li>
-                            <li>
-                                <a>Children: @occupants.CheckedInChildren / @occupants.Children</a>
-                            </li>
+                            <ul>
+                                @if (occupants.Date == Model.Date)
+                                {
+                                    <li>
+                                        <a>Adults: @occupants.CheckedInAdult / @occupants.Adult</a>
+                                    </li>
+                                    <li>
+                                        <a>Children: @occupants.CheckedInChildren / @occupants.Children</a>
+                                    </li>
 
-                        } else
-                        {
+                                }
+                                else
+                                {
 
+                                }
+                            </ul>
                         }
-                    </ul>
+                    </div>
                 }
-            </div>
+
 
             }
 
