@@ -9,7 +9,7 @@
 <div>
     <form method="post" asp-controller="Restaurant" asp-action="PostSubmit">
         <div asp-validation-summary="ModelOnly" class="text-danger" />
-        <a class="item-a">Register guests for breakfast</a>
+        <a>Check in guests for breakfast<br /></a>
 
         <div class="forms-group">
             <label asp-for="roomNumber">Room number:</label>
@@ -32,5 +32,8 @@
         <div class="form-group">
             <input type="submit" value="Send" id="mySubmit" class="button" />
         </div>
+
+        <a>Date is automatically sent with the check in as today's date. (@DateTime.Today.ToString("dd/mm/yyyy"))<br/></a>
+        <a>When checking in a room occupants several times, it increments the already excisting numbers in the database</a>
     </form>
 </div>
