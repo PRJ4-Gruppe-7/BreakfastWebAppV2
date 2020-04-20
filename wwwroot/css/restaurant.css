@@ -1,46 +1,6 @@
 ﻿
-.item-a {
-    grid-area: guide;
-    margin-left: auto;
-    margin-right: auto;
-    font-weight: bold;
-}
-
-.item-b {
-    grid-area: parent;
-}
-
-.item-c {
-    grid-area: countP;
-}
-
-.item-d {
-    grid-area: child;
-}
-
-.item-e {
-    grid-area: countC;
-}
-
-.item-f {
-    grid-area: send;
-}
-
-.item-g {
-    grid-area: room;
-}
-
-.item-h {
-    grid-area: number;
-}
-
-.container {
-    display: grid;
-    grid-row-gap: 10px;
-    grid-template:
-        "guide guide guide"
-        "room . number"
-        "parent . countP"
-        "child . countC"
-        "send . .";
+form .formInput {
+    float:right;
+    min-width: 55px;
+    text-align:right;
 }

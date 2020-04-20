@@ -7,25 +7,25 @@
 
 
 <div>
-    <form asp-action="Index">
+    <form method="post" asp-controller="Restaurant" asp-action="PostSubmit">
         <div asp-validation-summary="ModelOnly" class="text-danger" />
         <a class="item-a">Register guests for breakfast</a>
 
         <div class="forms-group">
             <label asp-for="roomNumber">Room number:</label>
-            <input asp-for="roomNumber" min="1" max="500" />
+            <input asp-for="roomNumber" min="1" max="50" value="1" class="formInput" />
             <span asp-validation-for="roomNumber" class="text-danger"></span>
         </div>
 
         <div class="forms-group">
-            <label asp-for="parentsCount">Parents:</label>
-            <input asp-for="parentsCount" min="1" max="4" />
-            <span asp-validation-for="parentsCount" class="text-danger"></span>
+            <label asp-for="adultsCount">Parents:</label>
+            <input asp-for="adultsCount" min="1" max="4" value="0" class="formInput" />
+            <span asp-validation-for="adultsCount" class="text-danger"></span>
         </div>
 
         <div class="forms-group">
             <label asp-for="childrenCount">Children:</label>
-            <input asp-for="childrenCount" min="0" max="4" />
+            <input asp-for="childrenCount" min="0" max="4" value="0" class="formInput" />
             <span asp-validation-for="childrenCount" class="text-danger"></span>
         </div>
 
