@@ -196,7 +196,6 @@ namespace BreakfastWebAppV2.Migrations
                 values: new object[]
                 {
                     1,
-                    27,
                     28,
                     29,
                     30,
@@ -217,10 +216,11 @@ namespace BreakfastWebAppV2.Migrations
                     45,
                     46,
                     47,
-                    26,
                     48,
+                    27,
+                    26,
                     25,
-                    23,
+                    24,
                     2,
                     3,
                     4,
@@ -231,8 +231,8 @@ namespace BreakfastWebAppV2.Migrations
                     9,
                     10,
                     11,
+                    49,
                     12,
-                    13,
                     14,
                     15,
                     16,
@@ -242,8 +242,9 @@ namespace BreakfastWebAppV2.Migrations
                     20,
                     21,
                     22,
-                    24,
-                    49
+                    23,
+                    13,
+                    50
                 });
 
             migrationBuilder.InsertData(
