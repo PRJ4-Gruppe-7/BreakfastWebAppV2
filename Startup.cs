@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using BreakfastWebAppV2.Models;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Http;
 
 namespace BreakfastWebAppV2
 {
@@ -59,7 +60,7 @@ namespace BreakfastWebAppV2
 
             app.UseAuthentication();
 
-            DbHelper.SeedUsersAsync(userManager, log);
+            DbHelper.SeedUsersAsync(userManager, log).Wait();
             
             app.UseAuthorization();
 
@@ -69,7 +70,12 @@ namespace BreakfastWebAppV2
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
+
+                //To disable register functionality in Identity
+                endpoints.MapGet("/Identity/Account/Register", context => Task.Factory.StartNew(() => context.Response.Redirect("/Identity/Account/Login", true, true)));
+                endpoints.MapPost("/Identity/Account/Register", context => Task.Factory.StartNew(() => context.Response.Redirect("/Identity/Account/Login", true, true)));
             });
         }
     }
 }
+

@@ -6,3 +6,29 @@ and (max-device-width : 1024px)
 and (orientation : portrait) {
 /* Styles */
 }
+
+
+.form-control-homemade {
+	display: block;
+	width: 80%;
+	height: 100px;
+	padding: 0.375rem 0.75rem;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #495057;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 1px solid #ced4da;
+	border-radius: 0.25rem;
+	transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+	font-size:xx-large;
+}
+
+.btn-outline-secondary-homemade {
+	color: #6c757d;
+	border-color: #6c757d;
+	height:100px;
+	width:150px;
+	font-size: xx-large;
+}
