@@ -1,48 +1,7 @@
-﻿@model ReceptionViewModel
+﻿
 @{
-    ViewData["Title"] = "Reception Page";
+    ViewData["Title"] = "Index";
 }
 
-
-
-
-<!DOCTYPE html>
-<html>
-<head>
-    <link href="@Url.Content("~/css/reception.css")" rel="stylesheet" type="text/css" />
-</head>
-
-<body>
-    <h1>Display Images</h1>
-    <form method="post" asp-controller="Reception" asp-action="Submit">
-        I want to see:
-        <label for="roomnumber">Indtast dato</label>
-        <input value="sds" type="date" name="date"/>
-        <input type="submit" value="Submit" />
-
-        <div class="output">
-            @foreach (var room in Model.ListOfRooms)
-            {
-                <div class="single_room">
-                    <a class="number">@room.RoomNumber</a>
-                    @foreach (var occupants in room.Occupants)
-                    {
-                        @if (occupants.Date == Model.Date)
-                        {
-                            <a>@occupants.CheckedInChildren / @occupants.Children</a>
-                        }
-                    }
-                </div>
-
-            }
-
-        </div>
-    </form>
-</body>
-</html>
-
-
-
-
-
+<h1>Index</h1>
 

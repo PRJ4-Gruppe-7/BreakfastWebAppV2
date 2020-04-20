@@ -12,17 +12,35 @@ namespace BreakfastWebAppV2.Controllers
     public class ReceptionController : Controller
     {
         private ApplicationDbContext context;
+
         public IActionResult Index()
+        {
+            return View();
+        }
+        public IActionResult Get()
         {
             var rooms = context.Rooms.Include(r => r.Occupants).ToList();
             return View(new ReceptionViewModel(rooms, new DateTime(2020, 4, 19)));
         }
 
         [HttpPost]
-        public ActionResult Submit()
+        public ActionResult GetSubmit()
         {
             var rooms = context.Rooms.Include(r => r.Occupants).ToList();
-            return View("Index", new ReceptionViewModel(rooms, DateTime.Parse(Request.Form["date"])));
+            return View("Get", new ReceptionViewModel(rooms, DateTime.Parse(Request.Form["date"])));
+        }
+
+        [HttpPost]
+        public ActionResult SetSubmit()
+        {
+            string date = Request.Form["date"];
+            string roomnumber = Request.Form["RoomNumber"];
+            string adultsbreakfast = Request.Form["AdultsWantBreakfast"];
+            string childrenbreakfast = Request.Form["ChildrenWantBreakfast"];
+
+            //context.Add(new Occupants() { s})
+
+            return View("Get");
         }
 
         public ReceptionController (ApplicationDbContext dbcont)

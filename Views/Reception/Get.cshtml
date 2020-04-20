@@ -1,0 +1,59 @@
+﻿@model ReceptionViewModel
+@{
+    ViewData["Title"] = "Reception Page";
+}
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="@Url.Content("~/css/reception.css")" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <h1>Display Images</h1>
+
+    <form method="post" asp-controller="Reception" asp-action="GetSubmit">
+        <label for="roomnumber">Indtast dato</label>
+        <input value="sds" type="date" name="date"/>
+        <input type="submit" value="Submit" />
+
+        <div class="output">
+            @foreach (var room in Model.ListOfRooms)
+            {
+            <div class="single_room">
+                <a class="number">Room @room.RoomNumber</a>
+                @foreach (var occupants in room.Occupants)
+                {
+                    <ul>
+                        @if (occupants.Date == Model.Date)
+                        {
+                            <li>
+                                <a>Adults: @occupants.CheckedInAdult / @occupants.Adult</a>
+                            </li>
+                            <li>
+                                <a>Children: @occupants.CheckedInChildren / @occupants.Children</a>
+                            </li>
+
+                        } else
+                        {
+
+                        }
+                    </ul>
+                }
+            </div>
+
+            }
+
+        </div>
+    </form>
+</body>
+</html>
+
+
+
+
+
+
