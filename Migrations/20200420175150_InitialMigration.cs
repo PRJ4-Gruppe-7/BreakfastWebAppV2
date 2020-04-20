@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BreakfastWebAppV2.Migrations
 {
-    public partial class initialMigration : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -176,8 +176,8 @@ namespace BreakfastWebAppV2.Migrations
                     Date = table.Column<DateTime>(nullable: false),
                     Adult = table.Column<int>(nullable: false),
                     Children = table.Column<int>(nullable: false),
-                    CheckedInAdult = table.Column<int>(nullable: false),
-                    CheckedInChildren = table.Column<int>(nullable: false)
+                    CheckedInAdult = table.Column<int>(nullable: false, defaultValue: 0),
+                    CheckedInChildren = table.Column<int>(nullable: false, defaultValue: 0)
                 },
                 constraints: table =>
                 {
@@ -196,9 +196,54 @@ namespace BreakfastWebAppV2.Migrations
                 values: new object[]
                 {
                     1,
+                    27,
+                    28,
+                    29,
+                    30,
+                    31,
+                    32,
+                    33,
+                    34,
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44,
+                    45,
+                    46,
+                    47,
+                    26,
+                    48,
+                    25,
+                    23,
                     2,
                     3,
-                    4
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    24,
+                    49
                 });
 
             migrationBuilder.InsertData(
@@ -207,11 +252,22 @@ namespace BreakfastWebAppV2.Migrations
                 values: new object[,]
                 {
                     { 1, 4, 2, 2, 2, new DateTime(2020, 4, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), 1 },
-                    { 2, 4, 1, 1, 2, new DateTime(2020, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), 1 },
-                    { 3, 2, 0, 2, 2, new DateTime(2020, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), 1 },
-                    { 4, 1, 0, 0, 0, new DateTime(2020, 4, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), 2 },
-                    { 5, 1, 0, 0, 0, new DateTime(2020, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), 2 },
-                    { 6, 1, 0, 0, 0, new DateTime(2020, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), 2 }
+                    { 2, 4, 1, 1, 2, new DateTime(2020, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), 1 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Occupants",
+                columns: new[] { "ID", "Adult", "CheckedInChildren", "Children", "Date", "RoomID" },
+                values: new object[] { 3, 2, 2, 2, new DateTime(2020, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), 1 });
+
+            migrationBuilder.InsertData(
+                table: "Occupants",
+                columns: new[] { "ID", "Adult", "Children", "Date", "RoomID" },
+                values: new object[,]
+                {
+                    { 4, 1, 0, new DateTime(2020, 4, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), 2 },
+                    { 5, 1, 0, new DateTime(2020, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), 2 },
+                    { 6, 1, 0, new DateTime(2020, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), 2 }
                 });
 
             migrationBuilder.CreateIndex(

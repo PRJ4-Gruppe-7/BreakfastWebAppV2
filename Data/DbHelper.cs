@@ -13,6 +13,7 @@ namespace BreakfastWebAppV2.Data
     {
         public static async Task SeedUsersAsync(UserManager<ApplicationUser> userManager, ILogger log)
         {
+
             const string ReceptionistEmail = "Receptionist@localhost";
             const string ReceptionistPassword = "Password_123";
 
@@ -32,12 +33,11 @@ namespace BreakfastWebAppV2.Data
                 if (result.Succeeded)
                 {
                     var ReceptionistClaim = new Claim("Receptionist", "Yes");
-                    userManager.AddClaimAsync(user, ReceptionistClaim);
+                    await userManager.AddClaimAsync(user, ReceptionistClaim);
                 }
             }
 
             
-
             const string WaiterEmail = "Waiter@localhost";
             const string WaiterPassword = "Password_123";
 
@@ -58,12 +58,9 @@ namespace BreakfastWebAppV2.Data
                 if (result.Succeeded)
                 {
                     var WaiterClaim = new Claim("Waiter", "Yes");
-                    userManager.AddClaimAsync(user, WaiterClaim);
+                    await userManager.AddClaimAsync(user, WaiterClaim);
                 }
             }
-
-
-
 
 
             const string CookEmail = "Cook@localhost";
@@ -87,7 +84,7 @@ namespace BreakfastWebAppV2.Data
                 if (result.Succeeded)
                 {
                     var CookClaim = new Claim("Cook", "Yes");
-                    userManager.AddClaimAsync(user, CookClaim);
+                    await userManager.AddClaimAsync(user, CookClaim);
                 }
             }
 

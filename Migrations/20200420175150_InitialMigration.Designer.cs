@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BreakfastWebAppV2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200419220633_initialMigration")]
-    partial class initialMigration
+    [Migration("20200420175150_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -105,10 +105,14 @@ namespace BreakfastWebAppV2.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("CheckedInAdult")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0);
 
                     b.Property<int>("CheckedInChildren")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0);
 
                     b.Property<int>("Children")
                         .HasColumnType("int");
@@ -215,6 +219,186 @@ namespace BreakfastWebAppV2.Migrations
                         new
                         {
                             RoomNumber = 4
+                        },
+                        new
+                        {
+                            RoomNumber = 5
+                        },
+                        new
+                        {
+                            RoomNumber = 6
+                        },
+                        new
+                        {
+                            RoomNumber = 7
+                        },
+                        new
+                        {
+                            RoomNumber = 8
+                        },
+                        new
+                        {
+                            RoomNumber = 9
+                        },
+                        new
+                        {
+                            RoomNumber = 10
+                        },
+                        new
+                        {
+                            RoomNumber = 11
+                        },
+                        new
+                        {
+                            RoomNumber = 12
+                        },
+                        new
+                        {
+                            RoomNumber = 13
+                        },
+                        new
+                        {
+                            RoomNumber = 14
+                        },
+                        new
+                        {
+                            RoomNumber = 15
+                        },
+                        new
+                        {
+                            RoomNumber = 16
+                        },
+                        new
+                        {
+                            RoomNumber = 17
+                        },
+                        new
+                        {
+                            RoomNumber = 18
+                        },
+                        new
+                        {
+                            RoomNumber = 19
+                        },
+                        new
+                        {
+                            RoomNumber = 20
+                        },
+                        new
+                        {
+                            RoomNumber = 21
+                        },
+                        new
+                        {
+                            RoomNumber = 22
+                        },
+                        new
+                        {
+                            RoomNumber = 23
+                        },
+                        new
+                        {
+                            RoomNumber = 24
+                        },
+                        new
+                        {
+                            RoomNumber = 25
+                        },
+                        new
+                        {
+                            RoomNumber = 26
+                        },
+                        new
+                        {
+                            RoomNumber = 27
+                        },
+                        new
+                        {
+                            RoomNumber = 28
+                        },
+                        new
+                        {
+                            RoomNumber = 29
+                        },
+                        new
+                        {
+                            RoomNumber = 30
+                        },
+                        new
+                        {
+                            RoomNumber = 31
+                        },
+                        new
+                        {
+                            RoomNumber = 32
+                        },
+                        new
+                        {
+                            RoomNumber = 33
+                        },
+                        new
+                        {
+                            RoomNumber = 34
+                        },
+                        new
+                        {
+                            RoomNumber = 35
+                        },
+                        new
+                        {
+                            RoomNumber = 36
+                        },
+                        new
+                        {
+                            RoomNumber = 37
+                        },
+                        new
+                        {
+                            RoomNumber = 38
+                        },
+                        new
+                        {
+                            RoomNumber = 39
+                        },
+                        new
+                        {
+                            RoomNumber = 40
+                        },
+                        new
+                        {
+                            RoomNumber = 41
+                        },
+                        new
+                        {
+                            RoomNumber = 42
+                        },
+                        new
+                        {
+                            RoomNumber = 43
+                        },
+                        new
+                        {
+                            RoomNumber = 44
+                        },
+                        new
+                        {
+                            RoomNumber = 45
+                        },
+                        new
+                        {
+                            RoomNumber = 46
+                        },
+                        new
+                        {
+                            RoomNumber = 47
+                        },
+                        new
+                        {
+                            RoomNumber = 48
+                        },
+                        new
+                        {
+                            RoomNumber = 49
                         });
                 });
 

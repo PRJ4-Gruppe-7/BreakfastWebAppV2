@@ -35,24 +35,15 @@ namespace BreakfastWebAppV2.Data
                 .HasDefaultValue(0);
 
 
-            mb.Entity<Room>()
+            for (int i = 1; i <= 50; i++)
+            {
+                mb.Entity<Room>()
                 .HasData(
                 new Room
                 {
-                    RoomNumber = 1
-                },
-                new Room
-                {
-                    RoomNumber = 2
-                },
-                new Room
-                {
-                    RoomNumber = 3
-                },
-                new Room
-                {
-                    RoomNumber = 4,
+                    RoomNumber = i
                 });
+            }
 
             mb.Entity<Occupants>()
                 .HasData(
@@ -119,6 +110,7 @@ namespace BreakfastWebAppV2.Data
                 });
         }
         #endregion
+
 
        
 
