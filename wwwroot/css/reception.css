@@ -1,11 +1,4 @@
-﻿.content {
-    display: grid;
-    grid-template:"input output";
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 50px;
-}
-
-
+﻿
 .input {
     grid-area: input;
 

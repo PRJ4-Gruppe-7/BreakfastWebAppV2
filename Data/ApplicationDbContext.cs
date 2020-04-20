@@ -26,6 +26,15 @@ namespace BreakfastWebAppV2.Data
                 .Property(a => a.FullName)
                 .HasDefaultValue("John Doe");
 
+            mb.Entity<Occupants>()
+                .Property(o => o.CheckedInAdult)
+                .HasDefaultValue(0);
+
+            mb.Entity<Occupants>()
+                .Property(o => o.CheckedInChildren)
+                .HasDefaultValue(0);
+
+
             mb.Entity<Room>()
                 .HasData(
                 new Room
