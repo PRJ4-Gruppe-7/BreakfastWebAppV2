@@ -13,11 +13,11 @@
 </head>
 
 <body>
-    <h1>Display Images</h1>
+    <h1>Reception Get Page</h1>
 
     <form method="post" asp-controller="Reception" asp-action="GetSubmit">
         <label for="roomnumber">Indtast dato</label>
-        <input value="sds" type="date" name="date"/>
+        <input value="@Model.Date.ToString("yyyy-MM-dd")" type="date" name="date"/>
         <input type="submit" value="Submit" />
 
         <div class="output">

@@ -19,33 +19,37 @@
 
 
 <body>
-    <h1>Reception Page</h1>
+    <h1>Reception Set Page</h1>
 
     <div class="content">
 
-        <form class="input" method="post" asp-controller="Reception" asp-action="SetSubmit">
+        <form method="post" asp-controller="Reception" asp-action="Edit">
             <div class="date_bar">
                 <label for="date">Indtast dato</label>
-                <input type="date" name="date" />
+                <input value="@Model.Date.ToString("yyyy-MM-dd")" type="date" name="date" />
             </div>
 
-            <div class="room_bar">
-                <label for="roomnumber">Indtast værelsesnummer</label>
-                <input type="number" name="RoomNumber" />
-            </div>
+            <div class="input">
 
-            <div class="adults_bar">
-                <label for="adultsbreakfast">Indtast antal voksne der har bestilt morgenmad</label>
-                <input type="number" name="AdultsWantBreakfast" />
-            </div>
+                <div class="room_bar">
+                    <label for="roomnumber">Indtast værelsesnummer</label>
+                    <input value="1" type="number" required name="RoomNumber" min="1" />
+                </div>
 
-            <div class="kids_bar">
-                <label for="kidsbreakfast">Indtast antal børn der har bestilt morgenmad</label>
-                <input type="number" name="ChildrenWantBreakfast" />
-            </div>
+                <div class="adults_bar">
+                    <label for="adultsbreakfast">Indtast antal voksne der har bestilt morgenmad</label>
+                    <input value="0" type="number" required name="AdultsWantBreakfast" />
+                </div>
 
-            <div class="submit">
-                <input type="submit" value="Send" id="submit" /> <input type="reset" />
+                <div class="kids_bar">
+                    <label for="kidsbreakfast">Indtast antal børn der har bestilt morgenmad</label>
+                    <input value="0" type="number" required name="ChildrenWantBreakfast" />
+                </div>
+
+                <div class="submit">
+                    <input type="submit" value="Send" id="submit" /> <input type="reset" />
+                </div>
+
             </div>
 
 
