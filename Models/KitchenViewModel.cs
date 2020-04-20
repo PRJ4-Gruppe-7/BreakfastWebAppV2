@@ -7,13 +7,13 @@ namespace BreakfastWebAppV2.Models
 {
     public class KitchenViewModel
     {
-        public int ChildrenNotCheckedIn { get; set; }
-        public int AdultsNotCheckedIn { get; set; }
         public DateTime DatePicked { get; set; }
+        public List<Room> ListOfRooms { get; set; }
 
-        public KitchenViewModel(DateTime time)
+        public KitchenViewModel(List<Room> rooms, DateTime time)
         {
             DatePicked = time;
+            ListOfRooms = rooms;
         }
     }
 }

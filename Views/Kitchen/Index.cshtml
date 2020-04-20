@@ -1,24 +1,68 @@
 ﻿@model KitchenViewModel
 @{
-    ViewData["Title"] = "Kitchen Page";
+	ViewData["Title"] = "Kitchen Page";
 }
-    <link href="@Url.Content("~/css/kitchen.css")" rel="stylesheet" type="text/css" />
-   
+<link href="@Url.Content("~/css/Ipad.css")" rel="stylesheet" type="text/css" />
 
+@{int count = 0;}
+@{int CheckedInChildrenSum = 0;}
+@{int CheckedInAdultSum = 0;}
+@{int AdultCount = 0;}
+@{int ChildrenCount = 0;}
 
 <body>
     <h1>Kitchen Page</h1>
-    <form method="get" asp-controller="Kitchen" asp-action="Submit">
+    <form method="post" asp-controller="Kitchen" asp-action="Submit">
         <h3> Calendar</h3>
         <label for="day">Vælg dato</label>
         <div class="input-group mb-3">
-            <input value="sds" type="date" name="date" class="form-control" />
+            <input value="@Model.DatePicked.ToString("yyyy-MM-dd")" type="date" name="date" class="form-control" />
             <input type="submit" value="submit" class="btn btn-outline-secondary" />
         </div>
         <div class="output">
-            
+            <table class="table">
+                @foreach (var room in Model.ListOfRooms)
+				{
+                    @foreach (var occ in room.Occupants)
+					{
+                        @if (occ.Date == Model.DatePicked)
+						{
+							{ count += occ.Adult + occ.Children; }
+							{ AdultCount += occ.Adult; }
+							{ ChildrenCount += occ.Children; }
+							{ CheckedInChildrenSum += occ.CheckedInChildren; }
+							{ CheckedInAdultSum += occ.CheckedInAdult; }
+						}
+					}
+				}
 
+                    <thead>
+                        <tr>
+                            <th scope="col">Dato</th>
+                            <th scope="col">Forventede antal gæster</th>
+                            <th scope="col">Heraf børn/voksne</th>
+                            <th scope="col">Indcheckede voksne</th>
+                            <th scope="col">Indcheckede børn</th>
+                        </tr>
+                    </thead>
 
+                    <tbody>
+                        <tr>
+                            <th scope="row">@Model.DatePicked.Day/@Model.DatePicked.Month/@Model.DatePicked.Year</th>
+                        
+                            <td>@count</td>
+                            <td>@ChildrenCount / @AdultCount</td>
+                            <td>@CheckedInAdultSum / @AdultCount</td>
+                            <td>@CheckedInChildrenSum / @ChildrenCount</td>
+                        </tr>
+                    </tbody>
+            </table>
         </div>
     </form>
 </body>
+
+
+
+
+
+
