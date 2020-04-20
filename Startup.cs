@@ -39,7 +39,7 @@ namespace BreakfastWebAppV2
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UserManager<ApplicationUser> userManager, ILogger<Startup> log)
+        public async Task ConfigureAsync(IApplicationBuilder app, IWebHostEnvironment env, UserManager<ApplicationUser> userManager, ILogger<Startup> log)
         {
             if (env.IsDevelopment())
             {
@@ -59,7 +59,7 @@ namespace BreakfastWebAppV2
 
             app.UseAuthentication();
 
-            DbHelper.SeedUsersAsync(userManager, log);
+            await DbHelper.SeedUsersAsync(userManager, log);
             
             app.UseAuthorization();
 

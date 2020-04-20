@@ -4,7 +4,6 @@
 }
 
 
-
 <head>
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
@@ -33,21 +32,21 @@
 
                 <div class="room_bar">
                     <label for="roomnumber">Indtast værelsesnummer</label>
-                    <input value="1" type="number" required name="RoomNumber" min="1" />
+                    <input value="1" type="number" required name="RoomNumber" min="1" max="50"/>
                 </div>
 
                 <div class="adults_bar">
                     <label for="adultsbreakfast">Indtast antal voksne der har bestilt morgenmad</label>
-                    <input value="0" type="number" required name="AdultsWantBreakfast" />
+                    <input value="0" type="number"  required name="AdultsWantBreakfast" min="0" />
                 </div>
 
                 <div class="kids_bar">
                     <label for="kidsbreakfast">Indtast antal børn der har bestilt morgenmad</label>
-                    <input value="0" type="number" required name="ChildrenWantBreakfast" />
+                    <input value="0" type="number" required name="ChildrenWantBreakfast" min="0" />
                 </div>
 
                 <div class="submit">
-                    <input type="submit" value="Send" id="submit" /> <input type="reset" />
+                    <input type="submit" value="Send" id="submit"/> <input type="reset" />
                 </div>
 
             </div>
