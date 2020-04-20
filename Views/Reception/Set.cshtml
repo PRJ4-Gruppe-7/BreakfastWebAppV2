@@ -23,10 +23,9 @@
 
     <div class="content">
 
-
-        <form class="input">
+        <form class="input" method="post" asp-controller="Reception" asp-action="SetSubmit">
             <div class="date_bar">
-                <label for="roomnumber">Indtast dato</label>
+                <label for="date">Indtast dato</label>
                 <input type="date" name="date" />
             </div>
 
@@ -52,30 +51,6 @@
 
         </form>
 
-        <div class="output">
-
-
-
-        </div>
-
-
-
-
-        @*<div class="output">
-                    @foreach (var room in Model.ListOfRooms)
-                    {
-                        <a>Room number is: @room.RoomNumber</a>
-                        @foreach (var occupants in room.Occupants)
-                        {
-                            @if (occupants.Date == Model.TodoStartDate)
-                            {
-                                <a>@occupants.CheckedInChildren / @occupants.Children</a>
-                            }
-                        }
-
-                    }
-
-            </div>*@
 
     </div>
 
