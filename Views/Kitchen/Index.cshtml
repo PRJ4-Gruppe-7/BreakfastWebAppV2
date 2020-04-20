@@ -4,22 +4,21 @@
 }
     <link href="@Url.Content("~/css/kitchen.css")" rel="stylesheet" type="text/css" />
    
- <div class="container">
-        <div class="row">
-            <div class='col-sm-6'>
-                <div class="form-group">
-                    <div class='input-group date' id='datetimepicker1'>
-                        <input type='text' class="form-control" />
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <script type="text/javascript">
-            $(function () {
-                $('#datetimepicker1').datetimepicker();
-            });
-            </script>
+
+
+<body>
+    <h1>Kitchen Page</h1>
+    <form method="get" asp-controller="Kitchen" asp-action="Submit">
+        <h3> Calendar</h3>
+        <label for="day">Vælg dato</label>
+        <div class="input-group mb-3">
+            <input value="sds" type="date" name="date" class="form-control" />
+            <input type="submit" value="submit" class="btn btn-outline-secondary" />
         </div>
-    </div>
+        <div class="output">
+            
+
+
+        </div>
+    </form>
+</body>

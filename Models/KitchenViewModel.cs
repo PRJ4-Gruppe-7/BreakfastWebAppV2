@@ -9,5 +9,11 @@ namespace BreakfastWebAppV2.Models
     {
         public int ChildrenNotCheckedIn { get; set; }
         public int AdultsNotCheckedIn { get; set; }
+        public DateTime DatePicked { get; set; }
+
+        public KitchenViewModel(DateTime time)
+        {
+            DatePicked = time;
+        }
     }
 }

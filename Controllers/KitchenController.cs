@@ -13,5 +13,11 @@ namespace BreakfastWebAppV2.Controllers
         {
             return View(model);
         }
+
+        [HttpGet]
+        public ActionResult Submit()
+        {
+            return View("Index", new KitchenViewModel(DateTime.Parse(Request.Form["date"])));
+        }
     }
 }
