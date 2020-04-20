@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BreakfastWebAppV2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200419152837_Initial-Migration")]
-    partial class InitialMigration
+    [Migration("20200419220633_initialMigration")]
+    partial class initialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -116,15 +116,12 @@ namespace BreakfastWebAppV2.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("RoomNumber")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("RoomNumber1")
+                    b.Property<int>("RoomID")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
 
-                    b.HasIndex("RoomNumber1");
+                    b.HasIndex("RoomID");
 
                     b.ToTable("Occupants");
 
@@ -137,7 +134,7 @@ namespace BreakfastWebAppV2.Migrations
                             CheckedInChildren = 2,
                             Children = 2,
                             Date = new DateTime(2020, 4, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RoomNumber = 1
+                            RoomID = 1
                         },
                         new
                         {
@@ -147,7 +144,7 @@ namespace BreakfastWebAppV2.Migrations
                             CheckedInChildren = 1,
                             Children = 2,
                             Date = new DateTime(2020, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RoomNumber = 1
+                            RoomID = 1
                         },
                         new
                         {
@@ -157,7 +154,7 @@ namespace BreakfastWebAppV2.Migrations
                             CheckedInChildren = 2,
                             Children = 2,
                             Date = new DateTime(2020, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RoomNumber = 1
+                            RoomID = 1
                         },
                         new
                         {
@@ -167,7 +164,7 @@ namespace BreakfastWebAppV2.Migrations
                             CheckedInChildren = 0,
                             Children = 0,
                             Date = new DateTime(2020, 4, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RoomNumber = 2
+                            RoomID = 2
                         },
                         new
                         {
@@ -177,7 +174,7 @@ namespace BreakfastWebAppV2.Migrations
                             CheckedInChildren = 0,
                             Children = 0,
                             Date = new DateTime(2020, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RoomNumber = 2
+                            RoomID = 2
                         },
                         new
                         {
@@ -187,7 +184,7 @@ namespace BreakfastWebAppV2.Migrations
                             CheckedInChildren = 0,
                             Children = 0,
                             Date = new DateTime(2020, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RoomNumber = 2
+                            RoomID = 2
                         });
                 });
 
@@ -360,7 +357,9 @@ namespace BreakfastWebAppV2.Migrations
                 {
                     b.HasOne("BreakfastWebAppV2.Models.Room", "Room")
                         .WithMany("Occupants")
-                        .HasForeignKey("RoomNumber1");
+                        .HasForeignKey("RoomID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

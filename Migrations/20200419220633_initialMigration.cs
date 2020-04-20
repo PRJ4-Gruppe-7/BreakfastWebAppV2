@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BreakfastWebAppV2.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class initialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -172,8 +172,7 @@ namespace BreakfastWebAppV2.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    RoomNumber = table.Column<int>(nullable: false),
-                    RoomNumber1 = table.Column<int>(nullable: true),
+                    RoomID = table.Column<int>(nullable: false),
                     Date = table.Column<DateTime>(nullable: false),
                     Adult = table.Column<int>(nullable: false),
                     Children = table.Column<int>(nullable: false),
@@ -184,24 +183,11 @@ namespace BreakfastWebAppV2.Migrations
                 {
                     table.PrimaryKey("PK_Occupants", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_Occupants_Rooms_RoomNumber1",
-                        column: x => x.RoomNumber1,
+                        name: "FK_Occupants_Rooms_RoomID",
+                        column: x => x.RoomID,
                         principalTable: "Rooms",
                         principalColumn: "RoomNumber",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.InsertData(
-                table: "Occupants",
-                columns: new[] { "ID", "Adult", "CheckedInAdult", "CheckedInChildren", "Children", "Date", "RoomNumber", "RoomNumber1" },
-                values: new object[,]
-                {
-                    { 1, 4, 2, 2, 2, new DateTime(2020, 4, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, null },
-                    { 2, 4, 1, 1, 2, new DateTime(2020, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, null },
-                    { 3, 2, 0, 2, 2, new DateTime(2020, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, null },
-                    { 4, 1, 0, 0, 0, new DateTime(2020, 4, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, null },
-                    { 5, 1, 0, 0, 0, new DateTime(2020, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, null },
-                    { 6, 1, 0, 0, 0, new DateTime(2020, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, null }
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
@@ -213,6 +199,19 @@ namespace BreakfastWebAppV2.Migrations
                     2,
                     3,
                     4
+                });
+
+            migrationBuilder.InsertData(
+                table: "Occupants",
+                columns: new[] { "ID", "Adult", "CheckedInAdult", "CheckedInChildren", "Children", "Date", "RoomID" },
+                values: new object[,]
+                {
+                    { 1, 4, 2, 2, 2, new DateTime(2020, 4, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), 1 },
+                    { 2, 4, 1, 1, 2, new DateTime(2020, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), 1 },
+                    { 3, 2, 0, 2, 2, new DateTime(2020, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), 1 },
+                    { 4, 1, 0, 0, 0, new DateTime(2020, 4, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), 2 },
+                    { 5, 1, 0, 0, 0, new DateTime(2020, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), 2 },
+                    { 6, 1, 0, 0, 0, new DateTime(2020, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), 2 }
                 });
 
             migrationBuilder.CreateIndex(
@@ -255,9 +254,9 @@ namespace BreakfastWebAppV2.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Occupants_RoomNumber1",
+                name: "IX_Occupants_RoomID",
                 table: "Occupants",
-                column: "RoomNumber1");
+                column: "RoomID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
