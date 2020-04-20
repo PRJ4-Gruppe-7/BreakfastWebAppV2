@@ -13,10 +13,6 @@ namespace BreakfastWebAppV2.Data
     {
         public static async Task SeedUsersAsync(UserManager<ApplicationUser> userManager, ILogger log)
         {
-
-
-
-
             const string ReceptionistEmail = "Receptionist@localhost";
             const string ReceptionistPassword = "Password_123";
 
